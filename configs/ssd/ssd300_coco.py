@@ -37,8 +37,8 @@ test_pipeline = [
                    'scale_factor'))
 ]
 train_dataloader = dict(
-    batch_size=8,
-    num_workers=2,
+    batch_size=4,
+    num_workers=0,
     batch_sampler=None,
     dataset=dict(
         _delete_=True,
@@ -58,7 +58,7 @@ test_dataloader = val_dataloader
 # optimizer
 optim_wrapper = dict(
     type='OptimWrapper',
-    optimizer=dict(type='SGD', lr=2e-3, momentum=0.9, weight_decay=5e-4))
+    optimizer=dict(type='SGD', lr=2e-3, momentum=0.9, weight_decay=5e-4,foreach=False))
 
 custom_hooks = [
     dict(type='NumClassCheckHook'),
