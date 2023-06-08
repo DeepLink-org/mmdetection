@@ -37,7 +37,7 @@ test_pipeline = [
                    'scale_factor'))
 ]
 train_dataloader = dict(
-    batch_size=4,
+    batch_size=2,
     num_workers=0,
     batch_sampler=None,
     dataset=dict(
