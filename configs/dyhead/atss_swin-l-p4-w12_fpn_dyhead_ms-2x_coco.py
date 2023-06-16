@@ -3,7 +3,7 @@ _base_ = [
     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
 ]
 
-pretrained = 'https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_large_patch4_window12_384_22k.pth'  # noqa
+pretrained = 'data/swin_large_patch4_window12_384_22k.pth'  # noqa
 model = dict(
     type='ATSS',
     data_preprocessor=dict(
@@ -130,7 +130,7 @@ optim_wrapper = dict(
     _delete_=True,
     type='OptimWrapper',
     optimizer=dict(
-        type='AdamW', lr=0.00005, betas=(0.9, 0.999), weight_decay=0.05),
+        type='AdamW', lr=0.00005, betas=(0.9, 0.999), weight_decay=0.05,foreach=False),
     paramwise_cfg=dict(
         custom_keys={
             'absolute_pos_embed': dict(decay_mult=0.),

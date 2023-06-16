@@ -109,7 +109,7 @@ test_pipeline = [
 ]
 
 train_dataloader = dict(
-    batch_size=8,
+    batch_size=2,
     num_workers=4,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=True),
@@ -150,7 +150,7 @@ train_cfg = dict(max_epochs=273, val_interval=7)
 # optimizer
 optim_wrapper = dict(
     type='OptimWrapper',
-    optimizer=dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0005),
+    optimizer=dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0005, foreach=False),
     clip_grad=dict(max_norm=35, norm_type=2))
 
 # learning policy
