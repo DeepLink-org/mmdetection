@@ -1,5 +1,5 @@
 _base_ = 'fcos_r50-caffe_fpn_gn-head_1x_coco.py'
-
+checkpoint = '/mnt/lustre/share_data/PAT/datasets/mmdet/pretrain/vgg16_caffe-292e1171.pth'
 # model settings
 model = dict(
     data_preprocessor=dict(
@@ -13,7 +13,7 @@ model = dict(
         stage_with_dcn=(False, True, True, True),
         init_cfg=dict(
             type='Pretrained',
-            checkpoint='open-mmlab://detectron2/resnet50_caffe')),
+            checkpoint=checkpoint)),
     bbox_head=dict(
         norm_on_bbox=True,
         centerness_on_reg=True,

@@ -1,5 +1,6 @@
 _base_ = ['../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py']
 # model settings
+checkpoint = '/mnt/lustre/share_data/PAT/datasets/mmdet/pretrain/darknet53-a628ea1b.pth'
 data_preprocessor = dict(
     type='DetDataPreprocessor',
     mean=[0, 0, 0],
@@ -13,7 +14,7 @@ model = dict(
         type='Darknet',
         depth=53,
         out_indices=(3, 4, 5),
-        init_cfg=dict(type='Pretrained', checkpoint='open-mmlab://darknet53')),
+        init_cfg=dict(type='Pretrained', checkpoint=checkpoint)),
     neck=dict(
         type='YOLOV3Neck',
         num_scales=3,

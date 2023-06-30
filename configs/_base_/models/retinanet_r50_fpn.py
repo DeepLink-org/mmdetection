@@ -1,4 +1,5 @@
 # model settings
+checkpoint = '/mnt/lustre/share_data/PAT/datasets/pretrain/torchvision/resnet50-0676ba61.pth'
 model = dict(
     type='RetinaNet',
     data_preprocessor=dict(
@@ -16,7 +17,7 @@ model = dict(
         norm_cfg=dict(type='BN', requires_grad=True),
         norm_eval=True,
         style='pytorch',
-        init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet50')),
+        init_cfg=dict(type='Pretrained', checkpoint=checkpoint)),
     neck=dict(
         type='FPN',
         in_channels=[256, 512, 1024, 2048],

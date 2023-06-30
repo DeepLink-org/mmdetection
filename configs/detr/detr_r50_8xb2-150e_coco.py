@@ -1,6 +1,7 @@
 _base_ = [
     '../_base_/datasets/coco_detection.py', '../_base_/default_runtime.py'
 ]
+checkpoint='/mnt/lustre/share_data/PAT/datasets/pretrain/torchvision/resnet50-0676ba61.pth'
 model = dict(
     type='DETR',
     num_queries=100,
@@ -19,7 +20,7 @@ model = dict(
         norm_cfg=dict(type='BN', requires_grad=False),
         norm_eval=True,
         style='pytorch',
-        init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet50')),
+        init_cfg=dict(type='Pretrained', checkpoint=checkpoint)),
     neck=dict(
         type='ChannelMapper',
         in_channels=[2048],
