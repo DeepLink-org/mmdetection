@@ -1,5 +1,4 @@
 # model settings
-checkpoint = '/mnt/lustre/share_data/PAT/datasets/mmdet/pretrain/vgg16_caffe-292e1171.pth'
 input_size = 300
 model = dict(
     type='SingleStageDetector',
@@ -17,7 +16,7 @@ model = dict(
         out_indices=(3, 4),
         out_feature_indices=(22, 34),
         init_cfg=dict(
-            type='Pretrained', checkpoint=checkpoint)),
+            type='Pretrained', checkpoint='data/vgg16_caffe-292e1171.pth')),
     neck=dict(
         type='SSDNeck',
         in_channels=(512, 1024),
