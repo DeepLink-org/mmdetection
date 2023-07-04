@@ -13,7 +13,7 @@ model = dict(
         type='Darknet',
         depth=53,
         out_indices=(3, 4, 5),
-        init_cfg=dict(type='Pretrained', checkpoint='darknet53-a628ea1b.pth')),
+        init_cfg=dict(type='Pretrained', checkpoint='data/darknet53-a628ea1b.pth')),
     neck=dict(
         type='YOLOV3Neck',
         num_scales=3,
